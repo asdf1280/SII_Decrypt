@@ -1,1 +1,1 @@
-This repo focuses solely on documentation of SCS's binary sii format.
+This repo focuses solely on documentation of SCS's binary sii format. My goal is to create a SII decoder solely for the Automatic Save Editor project. (instead of depending on other libraries)
