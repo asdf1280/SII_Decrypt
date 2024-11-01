@@ -49,12 +49,12 @@ to read that file first.
   0x00000036                  array of bytebool
   0x00000037                  ordinal string
   0x00000038                 *unknown (probably array of ordinal strings)
-  0x00000039                  ID
-  0x0000003A                  array of ID
+  0x00000039                  owner_ptr
+  0x0000003A                  array of owner_ptr
   0x0000003B                  ID
   0x0000003C                  array of ID
-  0x0000003D                  ID
-  0x0000003E                 *unknown (probably array of ID)
+  0x0000003D                  weak_ptr
+  0x0000003E                  array of weak_ptr
   0x0000003F - 0xFFFFFFFF     unknown
 
 As you can see, much of the numbers mark an unknown type. If you manage to
