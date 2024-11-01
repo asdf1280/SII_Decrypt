@@ -2,7 +2,7 @@
 
 // This file was written using the C# code GenExample.cs next to this file using ETS2 1.53. To generate a similar file for a different version, create a blank C# console application in Visual Studio, and paste the code from GenExample.cs. Then copy 'ByteEncoder.cs' to the same folder. You should be able to run the application then.
 
-struct economy { // ID 0x1
+struct economy { // ID 0x01
         ptr bank; // ID 0x39
         ptr player; // ID 0x39
         ptr[] companies; // ID 0x3A
@@ -123,7 +123,7 @@ struct economy { // ID 0x1
         uint bus_playing_time; // ID 0x27
 }
 
-struct bank { // ID 0x2
+struct bank { // ID 0x02
         long money_account; // ID 0x31
         long coinsurance_fixed; // ID 0x31
         float coinsurance_ratio; // ID 0x05
@@ -139,7 +139,7 @@ struct bank { // ID 0x2
         bool sell_players_trailer_later; // ID 0x35
 }
 
-struct player { // ID 0x3
+struct player { // ID 0x03
         token hq_city; // ID 0x03
         ptr[] trailers; // ID 0x3A
         ptr[] trailer_utilization_logs; // ID 0x3A
@@ -179,7 +179,7 @@ struct player { // ID 0x3
         bool[] driver_quit_warned; // ID 0x36
 }
 
-struct trailer { // ID 0x4
+struct trailer { // ID 0x04
         weak_ptr trailer_definition; // ID 0x3D
         bool oversize; // ID 0x35
         float cargo_mass; // ID 0x05
@@ -209,12 +209,12 @@ struct trailer { // ID 0x4
         float[] wheels_wear_unfixable; // ID 0x06
 }
 
-struct vehicle_accessory { // ID 0x5
+struct vehicle_accessory { // ID 0x05
         str data_path; // ID 0x01
         uint refund; // ID 0x2F
 }
 
-struct vehicle_paint_job_accessory { // ID 0x6
+struct vehicle_paint_job_accessory { // ID 0x06
         float[3] mask_r_color; // ID 0x09
         float[3] mask_g_color; // ID 0x09
         float[3] mask_b_color; // ID 0x09
@@ -225,40 +225,40 @@ struct vehicle_paint_job_accessory { // ID 0x6
         uint refund; // ID 0x2F
 }
 
-struct vehicle_addon_accessory { // ID 0x7
+struct vehicle_addon_accessory { // ID 0x07
         token[] slot_name; // ID 0x04
         str[] slot_hookup; // ID 0x02
         str data_path; // ID 0x01
         uint refund; // ID 0x2F
 }
 
-struct vehicle_wheel_accessory { // ID 0x8
+struct vehicle_wheel_accessory { // ID 0x08
         short offset; // ID 0x2B
         float[3] paint_color; // ID 0x09
         str data_path; // ID 0x01
         uint refund; // ID 0x2F
 }
 
-struct vehicle_cargo_accessory { // ID 0x9
+struct vehicle_cargo_accessory { // ID 0x09
         weak_ptr cargo_data; // ID 0x3D
         ulong model_seed; // ID 0x33
         str data_path; // ID 0x01
         uint refund; // ID 0x2F
 }
 
-struct trailer_utilization_log { // ID 0x10
+struct trailer_utilization_log { // ID 0x0A
         ptr[] entries; // ID 0x3A
         uint total_driven_distance_km; // ID 0x27
         uint total_transported_cargoes; // ID 0x27
         float total_transported_weight; // ID 0x05
 }
 
-struct trailer_utilization_log_entry { // ID 0x11
+struct trailer_utilization_log_entry { // ID 0x0B
         uint economy_day; // ID 0x27
         uint use_time; // ID 0x27
 }
 
-struct trailer_def { // ID 0x12
+struct trailer_def { // ID 0x0C
         str trailer; // ID 0x01
         float gross_trailer_weight_limit; // ID 0x05
         float chassis_mass; // ID 0x05
@@ -273,7 +273,7 @@ struct trailer_def { // ID 0x12
         str source_name; // ID 0x01
 }
 
-struct vehicle { // ID 0x13
+struct vehicle { // ID 0x0D
         float engine_wear; // ID 0x05
         float transmission_wear; // ID 0x05
         float cabin_wear; // ID 0x05
@@ -309,7 +309,7 @@ struct vehicle { // ID 0x13
         float[] wheels_wear_unfixable; // ID 0x06
 }
 
-struct vehicle_drv_plate_accessory { // ID 0x14
+struct vehicle_drv_plate_accessory { // ID 0x0E
         str text; // ID 0x01
         token[] slot_name; // ID 0x04
         str[] slot_hookup; // ID 0x02
@@ -317,14 +317,14 @@ struct vehicle_drv_plate_accessory { // ID 0x14
         uint refund; // ID 0x2F
 }
 
-struct profit_log { // ID 0x15
+struct profit_log { // ID 0x0F
         ptr[] stats_data; // ID 0x3A
         uint acc_distance_free; // ID 0x27
         uint acc_distance_on_job; // ID 0x27
         uint history_age; // ID 0x27
 }
 
-struct profit_log_entry { // ID 0x16
+struct profit_log_entry { // ID 0x10
         long revenue; // ID 0x31
         long wage; // ID 0x31
         long maintenance; // ID 0x31
@@ -340,11 +340,11 @@ struct profit_log_entry { // ID 0x16
         uint timestamp_day; // ID 0x27
 }
 
-struct driver_player { // ID 0x17
+struct driver_player { // ID 0x11
         ptr profit_log; // ID 0x39
 }
 
-struct company { // ID 0x18
+struct company { // ID 0x12
         weak_ptr permanent_data; // ID 0x3D
         ptr delivered_trailer; // ID 0x39
         float[8_7][] delivered_pos; // ID 0x1A
@@ -355,7 +355,7 @@ struct company { // ID 0x18
         uint state; // ID 0x27
 }
 
-struct job_offer_data { // ID 0x19
+struct job_offer_data { // ID 0x13
         str target; // ID 0x01
         uint expiration_time; // ID 0x27
         uint urgency; // ID 0x27
@@ -371,7 +371,7 @@ struct job_offer_data { // ID 0x19
         float[8_7][] trailer_place; // ID 0x1A
 }
 
-struct garage { // ID 0x20
+struct garage { // ID 0x14
         ptr[] vehicles; // ID 0x3C
         ptr[] drivers; // ID 0x3C
         ptr[] trailers; // ID 0x3C
@@ -380,14 +380,14 @@ struct garage { // ID 0x20
         float productivity; // ID 0x05
 }
 
-struct game_progress { // ID 0x21
+struct game_progress { // ID 0x15
         ptr generic_transports; // ID 0x39
         ptr undamaged_transports; // ID 0x39
         ptr clean_transports; // ID 0x39
         str[] owned_trucks; // ID 0x02
 }
 
-struct transport_data { // ID 0x22
+struct transport_data { // ID 0x16
         uint distance; // ID 0x27
         uint time; // ID 0x27
         long money; // ID 0x31
@@ -396,17 +396,17 @@ struct transport_data { // ID 0x22
         uint[] count_per_dock; // ID 0x28
 }
 
-struct economy_event_queue { // ID 0x23
+struct economy_event_queue { // ID 0x17
         ptr[] data; // ID 0x3A
 }
 
-struct economy_event { // ID 0x24
+struct economy_event { // ID 0x18
         uint time; // ID 0x27
         ptr unit_link; // ID 0x3B
         uint param; // ID 0x27
 }
 
-struct mail_ctrl { // ID 0x25
+struct mail_ctrl { // ID 0x19
         ptr[] inbox; // ID 0x3A
         uint last_id; // ID 0x27
         uint unread_count; // ID 0x27
@@ -414,7 +414,7 @@ struct mail_ctrl { // ID 0x25
         float[] pmail_timers; // ID 0x06
 }
 
-struct mail_def { // ID 0x26
+struct mail_def { // ID 0x1A
         uint id; // ID 0x27
         str mail_text_ref; // ID 0x01
         str[] param_keys; // ID 0x02
@@ -425,16 +425,16 @@ struct mail_def { // ID 0x26
         int custom_data; // ID 0x25
 }
 
-struct oversize_offer_ctrl { // ID 0x27
+struct oversize_offer_ctrl { // ID 0x1B
         ptr[] route_offers; // ID 0x3A
 }
 
-struct oversize_route_offers { // ID 0x28
+struct oversize_route_offers { // ID 0x1C
         ptr[] offers; // ID 0x3A
         weak_ptr route; // ID 0x3D
 }
 
-struct oversize_offer { // ID 0x29
+struct oversize_offer { // ID 0x1D
         weak_ptr offer_data; // ID 0x3D
         str truck; // ID 0x01
         uint expiration; // ID 0x27
@@ -442,45 +442,45 @@ struct oversize_offer { // ID 0x29
         token outro_cutscene; // ID 0x03
 }
 
-struct delivery_log { // ID 0x30
+struct delivery_log { // ID 0x1E
         int version; // ID 0x25
         ptr[] entries; // ID 0x3A
         uint cached_jobs_count; // ID 0x27
 }
 
-struct delivery_log_entry { // ID 0x31
+struct delivery_log_entry { // ID 0x1F
         str[] params; // ID 0x02
 }
 
-struct ferry_log { // ID 0x32
+struct ferry_log { // ID 0x20
         ptr[] entries; // ID 0x3A
 }
 
-struct ferry_log_entry { // ID 0x33
+struct ferry_log_entry { // ID 0x21
         token ferry; // ID 0x03
         token connection; // ID 0x03
         uint last_visit; // ID 0x27
         uint use_count; // ID 0x27
 }
 
-struct police_offence_log { // ID 0x34
+struct police_offence_log { // ID 0x22
         ptr[] detailed_history_entries; // ID 0x3A
         uint[] offence_total_counts; // ID 0x28
         long[] offence_total_fines; // ID 0x32
 }
 
-struct gps_waypoint_storage { // ID 0x35
+struct gps_waypoint_storage { // ID 0x23
         int[3] nav_node_position; // ID 0x11
         enum<any=2, backward=1, forward=0> direction; // ID 0x37
 }
 
-struct police_ctrl { // ID 0x36
+struct police_ctrl { // ID 0x24
         float[] offence_timer; // ID 0x06
         uint[] offence_counter; // ID 0x28
         bool[] offence_valid; // ID 0x36
 }
 
-struct map_action { // ID 0x37
+struct map_action { // ID 0x25
         ulong[] id_params; // ID 0x34
         str name; // ID 0x01
         token command; // ID 0x03
@@ -491,7 +491,7 @@ struct map_action { // ID 0x37
         enum<condition=1, condition_retry=4, default=0, fallback=2, mandatory=3> type; // ID 0x37
 }
 
-struct driver_ai { // ID 0x38
+struct driver_ai { // ID 0x26
         uint adr; // ID 0x27
         uint long_dist; // ID 0x27
         uint heavy; // ID 0x27
@@ -520,7 +520,7 @@ struct driver_ai { // ID 0x38
         ptr profit_log; // ID 0x39
 }
 
-struct job_info { // ID 0x39
+struct job_info { // ID 0x27
         weak_ptr cargo; // ID 0x3D
         weak_ptr source_company; // ID 0x3D
         weak_ptr target_company; // ID 0x3D
@@ -537,31 +537,31 @@ struct job_info { // ID 0x39
         float fill_ratio; // ID 0x05
 }
 
-struct used_vehicle_assortment { // ID 0x40
+struct used_vehicle_assortment { // ID 0x28
         uint next_generation_game_time; // ID 0x27
         ptr[] trucks; // ID 0x3A
 }
 
-struct used_truck_offer { // ID 0x41
+struct used_truck_offer { // ID 0x29
         bool lefthand_traffic; // ID 0x35
         ptr truck; // ID 0x39
         long price; // ID 0x31
         uint expiration_game_time; // ID 0x27
 }
 
-struct registry { // ID 0x42
+struct registry { // ID 0x2A
         int[] data; // ID 0x26
         bool[] valid; // ID 0x36
         uint[] keys; // ID 0x28
         uint[] index; // ID 0x28
 }
 
-struct bus_stop { // ID 0x43
+struct bus_stop { // ID 0x2B
         bool discovered; // ID 0x35
         ptr[] lines_offer; // ID 0x3A
 }
 
-struct bus_job_log { // ID 0x44
+struct bus_job_log { // ID 0x2C
         int version; // ID 0x25
         ptr[] entries; // ID 0x3A
 }
