@@ -51,8 +51,8 @@ to read that file first.
   0x00000038                 *unknown (probably array of ordinal strings)
   0x00000039                  owner_ptr
   0x0000003A                  array of owner_ptr
-  0x0000003B                  ID
-  0x0000003C                  array of ID
+  0x0000003B                  inner_ptr
+  0x0000003C                  array of inner_ptr
   0x0000003D                  weak_ptr
   0x0000003E                  array of weak_ptr
   0x0000003F - 0xFFFFFFFF     unknown
@@ -451,6 +451,8 @@ Ordinal string                                                        0x00000037
 In data block stored as one 32bit unsigned integer, but value actually denotes a
 string stored in appropriate structure block for the actual field.
 
+I like to call this enum. It works quite similarly to enums in C#.
+
 Value type data structure (stored in structure block):
 
   begin
@@ -464,11 +466,17 @@ Value type data structure (stored in structure block):
 
 
 --------------------------------------------------------------------------------
-ID (a complex value)                          0x00000039, 0x0000003B, 0x0000003D
+token / ptr                                   0x00000039, 0x0000003B, 0x0000003D
 --------------------------------------------------------------------------------
-ID is a complex structure whose definitive behavior is not known at this moment.
-Also, there is no known difference between the three known types (0x39,0x3B,
-0x3D), but it is possible there is some.
+Pointers (a.k.a. ID from the original author) is a reference to another unit.
+
+  0x39 is owner_ptr. Each unit can be referenced by only one owner_ptr.
+  0x3B is inner_ptr. Each unit can be referenced by multiple inner_ptrs. However, it must be within the same SII file.
+  0x3D is weak_ptr. Each unit can be referenced by multiple weak_ptrs. It can be in different SII files. It can also be in the same SII file. For example trailer:trailer_definition can either be a nameless unit or reference to game data.
+  [Type + 1] means array of the type respectively.
+
+The name inner_ptr was arbitrarily chosen by me. On the SCS Modding Wiki(https://modding.scssoft.com/wiki/Documentation/Engine/Units) only owner_ptr and weak_ptr are documented.
+
 ID starts with an 8bit value that denotes its length (number of parts), followed
 by an array of 64bit numbers (individual parts). So, the general structure is as
 follows:
