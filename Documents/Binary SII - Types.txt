@@ -17,16 +17,21 @@ to read that file first.
   0x00000005                  single
   0x00000006                  array of single
   0x00000007                  vec2s
-  0x00000008                 *unknown (expecting array of vec2s)
+  0x00000008                  array
   0x00000009                  vec3s
   0x0000000A                  array of vec3s
-  0x0000000B - 0x00000010     unknown
+  0x0000000B                  vec4s
+  0x0000000C                  array of vec4s
+  0x0000000D                  int - fixed in modding wiki
+  0x0000000E                  array of int
+  0x0000000F                  vec2i
+  0x00000010                  array of vec2i
   0x00000011                  vec3i
   0x00000012                  array of vec3i
   0x00000013 - 0x00000016     unknown
-  0x00000017                  vec4s
+  0x00000017                  vec4s - quaternion in modding wiki
   0x00000018                  array of vec4s
-  0x00000019                  vec7s(1), vec8s(2)
+  0x00000019                  vec7s(1), vec8s(2) - placement
   0x0000001A                  array of vec7s(1), array of vec8s(2)
   0x0000001B - 0x00000024     unknown
   0x00000025                  int32
@@ -53,8 +58,8 @@ to read that file first.
   0x0000003A                  array of owner_ptr
   0x0000003B                  inner_ptr
   0x0000003C                  array of inner_ptr
-  0x0000003D                  weak_ptr
-  0x0000003E                  array of weak_ptr
+  0x0000003D                  link_ptr
+  0x0000003E                  array of link_ptr
   0x0000003F - 0xFFFFFFFF     unknown
 
 As you can see, much of the numbers mark an unknown type. If you manage to
@@ -471,11 +476,11 @@ token / ptr                                   0x00000039, 0x0000003B, 0x0000003D
 Pointers (a.k.a. ID from the original author) is a reference to another unit.
 
   0x39 is owner_ptr. Each unit can be referenced by only one owner_ptr.
-  0x3B is inner_ptr. Each unit can be referenced by multiple inner_ptrs. However, it must be within the same SII file.
-  0x3D is weak_ptr. Each unit can be referenced by multiple weak_ptrs. It can be in different SII files. It can also be in the same SII file. For example trailer:trailer_definition can either be a nameless unit or reference to game data.
+  0x3B is inner_ptr. Each unit can be referenced by multiple inner_ptrs. However, it must be within the same SII file. (unsure)
+  0x3D is link_ptr. Each unit can be referenced by multiple link_ptrs. It can be in different SII files. It can also be in the same SII file. For example trailer:trailer_definition can either be a nameless unit or reference to game data.
   [Type + 1] means array of the type respectively.
 
-The name inner_ptr was arbitrarily chosen by me. On the SCS Modding Wiki(https://modding.scssoft.com/wiki/Documentation/Engine/Units) only owner_ptr and weak_ptr are documented.
+The name inner_ptr was arbitrarily chosen by me. On the SCS Modding Wiki(https://modding.scssoft.com/wiki/Documentation/Engine/Units) only owner_ptr and link_ptr are documented.
 
 ID starts with an 8bit value that denotes its length (number of parts), followed
 by an array of 64bit numbers (individual parts). So, the general structure is as
