@@ -60,7 +60,9 @@ to read that file first.
   0x0000003C                  array of inner_ptr
   0x0000003D                  link_ptr
   0x0000003E                  array of link_ptr
-  0x0000003F - 0xFFFFFFFF     unknown
+  0x0000003F - 0x00000040     unknown
+  0x00000041                  int32 pair
+  0x00000042 - 0xFFFFFFFF     unknown
 
 As you can see, much of the numbers mark an unknown type. If you manage to
 determine any type that is listed as unknown, please contact author of this
@@ -515,4 +517,19 @@ Stored as a following structure:
   begin
     UInt32  (4B)             - length of the array
     ID[]    (variable size)  - array of ID structures
+  end
+
+--------------------------------------------------------------------------------
+Int32 Pair                                                            0x00000041
+--------------------------------------------------------------------------------
+Newly discovered in 2025, found in accessory_hookup_int_ui_data:ui_drawable_size
+
+For more information, read 
+https://dariowouters.gitlab.io/scs-updates/unit/accessory_hookup_int_ui_data/
+
+Stored as a following structure:
+
+  begin
+    Int32  (04)
+    Int32  (04)
   end
